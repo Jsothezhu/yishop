@@ -1,0 +1,1 @@
+<view class="data-v-6d833547"><block wx:for="{{label}}" wx:for-item="skuitem" wx:for-index="index" wx:key="index"><view data-event-opts="{{[['tap',[['selectedSku',[index,'$0'],[[['label','',index]]]]]]]}}" class="{{['skuitem','data-v-6d833547',index===selected?'selected':'']}}" bindtap="__e">{{''+skuitem+''}}</view></block></view>

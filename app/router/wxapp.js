@@ -1,0 +1,21 @@
+module.exports = app => {
+  app.router.get('/swiperdata', app.controller.wxapp.swiper);
+  app.router.get('/wxapp/getgoods', app.controller.wxapp.getGoods);
+  app.router.get('/wxapp/getcategory', app.controller.wxapp.getCategory);
+  app.router.post('/wxapp/login', app.controller.wxapp.login);
+  app.router.post('/wxapp/register', app.controller.wxapp.register);
+  app.router.get('/wxapp/search', app.controller.wxapp.search);
+  app.router.get('/wxapp/detail', app.controller.wxapp.detail);
+  app.router.get('/v1/wxapp/cart', app.controller.wxapp.getCart);
+  app.router.post('/v1/wxapp/addcart', app.controller.wxapp.addCart);
+  app.router.put('/v1/wxapp/altcartcount', app.controller.wxapp.altCartCount);
+  app.router.del('/v1/wxapp/delcart', app.controller.wxapp.delCart);
+  app.router.get('/v1/wxapp/getreceiveraddress', app.controller.wxapp.getAddress);
+  app.router.post('/v1/wxapp/addreceiveraddress', app.controller.wxapp.addAddress);
+  app.router.put('/v1/wxapp/altreceiveraddress', app.controller.wxapp.altAddress);
+  app.router.del('/v1/wxapp/delreceiveraddress', app.controller.wxapp.delAddress);
+  app.router.post('/v1/wxapp/addorder', app.controller.wxapp.addOrder);
+  app.router.get('/v1/wxapp/getorder', app.controller.wxapp.getOrderDetail);
+  app.router.get('/v1/wxapp/getuserorder', app.controller.wxapp.getUserOrder);
+  app.router.put('/v1/wxapp/getcomfireorder', app.controller.wxapp.getComfireOrder);
+};

@@ -1,0 +1,1 @@
+<view class="price data-v-1c4dd740"><text class="font-lg data-v-1c4dd740">￥</text><slot></slot></view>
