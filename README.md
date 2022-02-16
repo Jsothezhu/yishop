@@ -1,14 +1,13 @@
-# shop
+# yiwxshop
 
 
 
-## 接口文档
-`/app/v1/getUser` 获取用户信息
+## 一个微信小商城，包括后端、前台和后台,后端使用eggjs,前台是uni-app和uview2.0,后台使用的是vue3.0和ant-design-vue
 
 
 
-### Development
-
+### 使用说明
+先导入数据库
 ```bash
 $ npm i
 $ npm run dev
