@@ -122,20 +122,22 @@
 						});
 						uni.setStorage({
 							key:"userState",
-							data:response.token
+							data:response.token,
+							success: () => {
+								setTimeout(()=>{
+									//tab无法使用uni.navigateTo
+									uni.switchTab({
+										url:"/pages/my/my"
+									})
+									this.$router.go(0)
+								},800)
+								uni.showToast({
+									icon:'none',
+									title:"登录成功",
+									duration:2000
+								}) 
+							}
 						})
-						//tab无法使用uni.navigateTo
-						 setTimeout(()=>{
-							uni.switchTab({
-								url:"/pages/my/my"
-							})
-							this.$router.go(0)
-						},800)
-						uni.showToast({
-							icon:'none',
-							title:"登录成功",
-							duration:2000
-						}) 
 					}).catch((e)=>{
 						uni.showToast({
 							icon:'none',

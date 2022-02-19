@@ -36,7 +36,7 @@
           list-type="picture-card"
           class="avatar-uploader"
           :show-upload-list="false"
-          action="http://127.0.0.1:7001/app/v1/upload"
+          action="http://120.25.254.86:82/app/v1/upload"
           :before-upload="beforeUpload"
           @change="handleChange"
       >
@@ -164,7 +164,7 @@ export default {
         formState.good_pic = data[0].good_pic
         formState.type = Number(data[0].type)
       }).catch((e)=>{
-        console.log(e);
+        message.error(e);
       })
     }
     const onSubmit = ()=>{

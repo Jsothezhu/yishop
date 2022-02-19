@@ -26,9 +26,15 @@
 		},
 		methods:{
 			toset(url){
-				uni.navigateTo({
-					url:url
-				})
+				if(url){
+					uni.navigateTo({
+						url:url
+					})
+				}else{
+					uni.clearStorageSync()
+					this.$router.go(0)
+				}
+				
 			}
 		}
 	}

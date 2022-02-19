@@ -1,0 +1,1 @@
+<view class="d-flex bg-light j-sb px-2 py-1 my-2" style="height:200rpx;box-sizing:border-box;"><block wx:for="{{menulist}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view class="line-h-md"><image src="{{item.src}}" mode="widthFix" width="120rpx" height="100rpx"></image>{{''+item.name+''}}</view></block></view>

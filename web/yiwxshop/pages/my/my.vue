@@ -37,7 +37,7 @@
 				list:[
 					{
 						name:'通用设置',
-						url:"",
+						url:"../address/address",
 					},
 					{
 						name:"收货地址",
@@ -70,7 +70,6 @@
 		},
 		onShow() {
 			if(uni.getStorageSync("userInfo")){
-				console.log(1);
 				this.userInfo = JSON.parse(uni.getStorageSync("userInfo"))
 			}
 			console.log(this.userInfo);
