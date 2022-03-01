@@ -19108,7 +19108,6 @@ var router = (0, _uniSimpleRouter.createRouter)({
 
 //全局路由前置守卫
 exports.router = router;router.beforeEach(function (to, from, next) {
-  console.log(to);
   if (to.path === "/pages/myorder/myorder" || to.path === "/pages/address/address" || to.path === "/pages/neworder/neworder") {
     if (uni.getStorageSync("userState")) {
       next();
@@ -19210,7 +19209,7 @@ module.exports = function (vm) {
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(uni) {module.exports = {
-  baseUrl: 'http://127.0.0.1:7001',
+  baseUrl: 'http://120.25.254.86:82',
   dataType: 'text',
   timeout: 2000,
   withCredentials: true,

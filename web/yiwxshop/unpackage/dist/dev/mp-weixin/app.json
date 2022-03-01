@@ -53,6 +53,5 @@
     ]
   },
   "preloadRule": {},
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }

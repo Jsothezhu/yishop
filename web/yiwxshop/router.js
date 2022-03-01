@@ -6,7 +6,6 @@ const router = createRouter({
 });
 //全局路由前置守卫
 router.beforeEach((to, from, next) => {
-	console.log(to);
 	if(to.path==="/pages/myorder/myorder"||to.path==="/pages/address/address"||to.path==="/pages/neworder/neworder"){
 		if(uni.getStorageSync("userState")){
 			next()

@@ -39,7 +39,7 @@ export default {
 	},
 	actions: {
 		getGoodList(context) {
-			if (uni.getStorageSync('userInfo')) {
+			if (uni.getStorage('userInfo')) {
 				let info = JSON.parse(uni.getStorageSync('userInfo'))
 				uni.$u.http.get('/v1/wxapp/cart?user_id=' + info.id).then((response) => {
 					//提交购物车数据

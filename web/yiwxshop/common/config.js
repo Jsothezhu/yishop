@@ -4,6 +4,6 @@ module.exports = {
 	timeout:2000,
 	withCredentials: true, 
 	header:{
-		token:uni.getStorageSync('userState')
+		token:"",
 	}
 }

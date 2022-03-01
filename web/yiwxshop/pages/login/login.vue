@@ -41,10 +41,11 @@
 			<u--input
 				border="bottom"
 				type="text"
+				placeholder="验证码"
 				v-model="userinfo.code"
 				style="flex: 2; "
 			/>
-			<image src="http://127.0.0.1:7001/captcha" mode="widthFix"
+			<image src="http://120.25.254.86:82/captcha" mode="widthFix"
 			style="flex: 3;margin-left: 10upx;"
 			></image>			
 			</u-form-item>
@@ -129,8 +130,13 @@
 									uni.switchTab({
 										url:"/pages/my/my"
 									})
-									this.$router.go(0)
-								},800)
+									//this.$router.go(0)
+								},800);
+								//登录成功设置token
+								uni.$u.http.setConfig((config)=>{
+									    config.header.token = uni.getStorageSync('userState');
+									    return config;
+								});
 								uni.showToast({
 									icon:'none',
 									title:"登录成功",
@@ -144,7 +150,6 @@
 							title:e.data.msg,
 							duration:2000
 						})
-						console.log(e.data.msg);
 					})
 				}).catch((error)=>{
 					uni.showToast({
