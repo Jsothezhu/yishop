@@ -39,9 +39,3 @@
 		}
 	}
 </script>
-
-<style >
-	.u-cell{
-		background-color: white;
-	}
-</style>

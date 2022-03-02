@@ -247,6 +247,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 var _default =
 {
   data: function data() {
@@ -294,8 +295,13 @@ var _default =
                 uni.switchTab({
                   url: "/pages/my/my" });
 
-                _this.$router.go(0);
+                //this.$router.go(0)
               }, 800);
+              //登录成功设置token
+              uni.$u.http.setConfig(function (config) {
+                config.header.token = uni.getStorageSync('userState');
+                return config;
+              });
               uni.showToast({
                 icon: 'none',
                 title: "登录成功",
@@ -309,7 +315,6 @@ var _default =
             title: e.data.msg,
             duration: 2000 });
 
-          console.log(e.data.msg);
         });
       }).catch(function (error) {
         uni.showToast({

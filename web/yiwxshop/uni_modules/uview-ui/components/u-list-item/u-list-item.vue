@@ -112,5 +112,7 @@
 <style lang="scss" scoped>
 	@import "../../libs/css/components.scss";
 
-	.u-list-item {}
+	.u-list-item {
+		background-color: white;
+	}
 </style>

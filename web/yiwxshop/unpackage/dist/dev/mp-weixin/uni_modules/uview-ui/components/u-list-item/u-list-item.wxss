@@ -13,4 +13,7 @@ view.data-v-4980fe02, scroll-view.data-v-4980fe02, swiper-item.data-v-4980fe02 {
   align-items: stretch;
   align-content: flex-start;
 }
+.u-list-item.data-v-4980fe02 {
+  background-color: white;
+}
 
