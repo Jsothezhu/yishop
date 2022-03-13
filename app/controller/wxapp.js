@@ -45,25 +45,20 @@ class wxapp extends Controller{
         }
         //验证码
         try{
-            await ctx.helper.checkImageCode(ctx,param.code)
-        }catch(e){
-            ctx.error(400,"验证码错误")
-        }
-        try{
+             await ctx.helper.checkImageCode(ctx,param.code)
             //验证码通过，登录
             let password = ctx.helper.MD5(param.password);
             let user = await ctx.service.normalUser.wxappLogin(param.username,password);
             if(user !== null) {
                 let token = jwt.sign({username: param.username}, this.config.keys, {expiresIn: '7days'});
                 user.dataValues.token = token;
-                //ctx.session.user[param.username]=token;
                 delete param.password;
                 ctx.success(user);
             }else{
                 ctx.error(401,"账号或密码错误");
             }
         }catch(e){
-            ctx.error(500,"查询失败");
+            ctx.error(400,e.toString())
         }
     }
     /**

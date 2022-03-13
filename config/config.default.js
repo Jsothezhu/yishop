@@ -19,7 +19,7 @@ module.exports = appInfo => {
   };
   //跨域配置
   config.cors = {
-    origin: 'http://localhost:3000', // 表示允许的源
+    origin: 'http://127.0.0.1:3000', // 表示允许的源,尽量不用localhost,因为会导致sessionid不同而无法验证
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH', // 表示允许的http请求方式
     credentials:true
   };
@@ -54,6 +54,12 @@ module.exports = appInfo => {
     fileSize: '2mb',
     mode: 'file',
     fileExtensions:['.jpg', '.jpeg','.png']
+  };
+  exports.session = {
+    key: 'EGG_SESS',
+    maxAge: 24 * 3600 * 1000, // 1 天
+    httpOnly: true,
+    encrypt: true,
   };
 
 

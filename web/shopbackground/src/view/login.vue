@@ -112,9 +112,7 @@ export default defineComponent({
            }else{
              console.log(response);
              /*保存登录信息*/
-             //localStorage.setItem("token",)
              sessionStorage.setItem("userInfo",JSON.stringify(response.data))
-             //console.log();
              cookie.set("token",response.data.data[0].token)
              router.push('/admin/main')
            }

@@ -6,26 +6,19 @@
 
 
 
-### 使用说明
-先导入数据库
+### 本地调试后端说明
+先导入数据库，执行以下语句
 ```bash
 $ npm i
 $ npm run dev
-$ open http://localhost:7001/
 ```
-
-### Deploy
-
+###本地调试后台说明
 ```bash
-$ npm start
-$ npm stop
+$ npm i
+$ npm run dev
 ```
-
-### npm scripts
-
-- Use `npm run lint` to check code style.
-- Use `npm test` to run unit test.
-- Use `npm run autod` to auto detect dependencies upgrade, see [autod](https://www.npmjs.com/package/autod) for more detail.
-
-
-[egg]: https://eggjs.org
+###本地调试uni-app h5端说明
+安装依赖，然后再网页端运行
+```bash
+$ npm i
+```

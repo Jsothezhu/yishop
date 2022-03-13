@@ -6,7 +6,7 @@ class util extends Controller{
      async imageCode(){
         const { ctx } = this;
         ctx.response.type='image/svg+xml';
-        ctx.body = ctx.helper.createImageCode(ctx)
+        ctx.body = ctx.helper.createImageCode(ctx);
          console.log(ctx.session);
      }
      //上传文件

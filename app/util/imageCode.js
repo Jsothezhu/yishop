@@ -11,16 +11,14 @@ module.exports = {
             height:35,
             fontSize:35,
         });
-          ctx.session = {
-              code:captcha.text,
-          }
+          ctx.session.code = captcha.text;
+
         return captcha.data
     },
     validImageCode(ctx,clientCode){
-       // console.log(ctx.session);
-        if(ctx.session.code.toLowerCase() !== clientCode.toLowerCase()){
-             throw Error("验证码错误")
-         }
+        if (ctx.session.code.toLowerCase() !== clientCode.toLowerCase()){
+            throw Error('验证码错误');
+        }
     }
 
 }

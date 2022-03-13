@@ -7,7 +7,8 @@ module.exports={
         return ImageCode.createImageCode(ctx)
     },
     checkImageCode(ctx, clintCode){
-        return ImageCode.validImageCode(ctx,clintCode)
+        console.log(ctx.session);
+        return ImageCode.validImageCode(ctx,clintCode);
     },
     //加密
     MD5(){
