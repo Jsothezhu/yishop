@@ -1,8 +1,8 @@
 {
+  "component": true,
   "usingComponents": {
     "u-list": "/uni_modules/uview-ui/components/u-list/u-list",
     "u-list-item": "/uni_modules/uview-ui/components/u-list-item/u-list-item",
     "u-cell": "/uni_modules/uview-ui/components/u-cell/u-cell"
-  },
-  "component": true
+  }
 }

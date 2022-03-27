@@ -45,9 +45,9 @@
 				v-model="userinfo.code"
 				style="flex: 2; "
 			/>
-			<image src="http://127.0.0.1:7001/captcha" mode="widthFix"
+			<image src="http://120.25.254.86:82/captcha" mode="widthFix"
 			style="flex: 3;margin-left: 10upx;"
-			></image>			
+			></image>		
 			</u-form-item>
 			<!-- #endif -->	
 			<!-- #ifdef MP-WEIXIN -->
@@ -65,7 +65,7 @@
 				v-model="userinfo.code"
 				style="flex: 2; "
 				/>
-			<image src="http://120.25.254.86:82/captcha" mode="widthFix"
+			<image src="http://127.0.0.1:7001/captcha" mode="widthFix"
 			style="flex: 3;margin-left: 10upx;"
 			></image>		
 			</view>
@@ -84,9 +84,11 @@
 </template>
 
 <script>
+	import config from "@/common/config"
 	export default {
 		data() {
 			return {
+				picUrl:config.baseUrl+'/captcha',
 				userinfo:{
 					username:"",
 					password:"",
@@ -114,7 +116,6 @@
 		methods: {
 			submit(){
 				this.$refs.form1.validate().then((resolve)=>{
-					//console.log(this.config);
 					uni.$u.http.post("/wxapp/login",this.userinfo)
 					.then((response)=>{
 						uni.setStorage({
@@ -134,8 +135,8 @@
 								},800);
 								//登录成功设置token
 								uni.$u.http.setConfig((config)=>{
-									    config.header.token = uni.getStorageSync('userState');
-									    return config;
+									config.header.token = uni.getStorageSync('userState');
+									return config;
 								});
 								uni.showToast({
 									icon:'none',

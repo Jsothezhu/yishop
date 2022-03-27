@@ -94,19 +94,19 @@ var components
 try {
   components = {
     "u-Form": function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u--form/u--form */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u--form/u--form")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u--form/u--form.vue */ 316))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u--form/u--form */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u--form/u--form")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u--form/u--form.vue */ 314))
     },
     uFormItem: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-form-item/u-form-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-form-item/u-form-item")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-form-item/u-form-item.vue */ 322))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-form-item/u-form-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-form-item/u-form-item")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-form-item/u-form-item.vue */ 320))
     },
     "u-Input": function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u--input/u--input */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u--input/u--input")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u--input/u--input.vue */ 330))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u--input/u--input */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u--input/u--input")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u--input/u--input.vue */ 328))
     },
     uRow: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-row/u-row */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-row/u-row")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-row/u-row.vue */ 336))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-row/u-row */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-row/u-row")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-row/u-row.vue */ 334))
     },
     uCol: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-col/u-col */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-col/u-col")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-col/u-col.vue */ 344))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-col/u-col */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-col/u-col")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-col/u-col.vue */ 342))
     }
   }
 } catch (e) {
@@ -163,173 +163,181 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
-{
-  data: function data() {
-    return {
-      userinfo: {
-        username: "",
-        password: "",
-        code: "" },
-
-      rules: {
-        username: {
-          type: 'string',
-          required: true,
-          message: '请填写用户名' },
-
-        password: {
-          type: 'string',
-          required: true,
-          message: '请填写密码' },
-
-        code: {
-          type: 'string',
-          required: true,
-          message: "验证码不为空" } } };
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
-  },
-  methods: {
-    submit: function submit() {var _this = this;
-      this.$refs.form1.validate().then(function (resolve) {
-        //console.log(this.config);
-        uni.$u.http.post("/wxapp/login", _this.userinfo).
-        then(function (response) {
-          uni.setStorage({
-            key: 'userInfo',
-            data: JSON.stringify(response) });
 
-          uni.setStorage({
-            key: "userState",
-            data: response.token,
-            success: function success() {
-              setTimeout(function () {
-                //tab无法使用uni.navigateTo
-                uni.switchTab({
-                  url: "/pages/my/my" });
 
-                //this.$router.go(0)
-              }, 800);
-              //登录成功设置token
-              uni.$u.http.setConfig(function (config) {
-                config.header.token = uni.getStorageSync('userState');
-                return config;
-              });
-              uni.showToast({
-                icon: 'none',
-                title: "登录成功",
-                duration: 2000 });
 
-            } });
 
-        }).catch(function (e) {
-          uni.showToast({
-            icon: 'none',
-            title: e.data.msg,
-            duration: 2000 });
 
-        });
-      }).catch(function (error) {
-        uni.showToast({
-          icon: 'none',
-          title: "登录错误，请重新检查数据",
-          duration: 2000 });
 
-        console.log(error);
-      });
-    },
-    register: function register() {
-      uni.navigateTo({
-        url: "/pages/register/register" });
 
-    } } };exports.default = _default;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _config = _interopRequireDefault(__webpack_require__(/*! @/common/config */ 144));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = { data: function data() {return { picUrl: _config.default.baseUrl + '/captcha', userinfo: { username: "", password: "", code: "" }, rules: { username: { type: 'string', required: true, message: '请填写用户名' }, password: { type: 'string', required: true, message: '请填写密码' }, code: { type: 'string', required: true, message: "验证码不为空" } } };}, methods: { submit: function submit() {var _this = this;this.$refs.form1.validate().then(function (resolve) {uni.$u.http.post("/wxapp/login", _this.userinfo).then(function (response) {uni.setStorage({ key: 'userInfo', data: JSON.stringify(response) });uni.setStorage({ key: "userState", data: response.token, success: function success() {setTimeout(function () {//tab无法使用uni.navigateTo
+                uni.switchTab({ url: "/pages/my/my" }); //this.$router.go(0)
+              }, 800); //登录成功设置token
+              uni.$u.http.setConfig(function (config) {config.header.token = uni.getStorageSync('userState');return config;});uni.showToast({ icon: 'none', title: "登录成功", duration: 2000 });} });}).catch(function (e) {uni.showToast({ icon: 'none', title: e.data.msg, duration: 2000 });});}).catch(function (error) {uni.showToast({ icon: 'none', title: "登录错误，请重新检查数据", duration: 2000 });console.log(error);});}, register: function register() {uni.navigateTo({ url: "/pages/register/register" });} } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })
