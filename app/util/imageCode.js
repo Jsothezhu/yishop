@@ -11,11 +11,11 @@ module.exports = {
       height: 35,
       fontSize: 35,
     });
-    await app.redis.hset('captcha', ctx.request.header.referer, captcha.text);
+    await app.redis.get('code').hset('captcha', ctx.request.header.referer, captcha.text);
     return captcha.data;
   },
   async validImageCode(app,ctx,clientCode) {
-    const code = await app.redis.hget('captcha',ctx.request.header.referer);
+    const code = await app.redis.get('code').hget('captcha',ctx.request.header.referer);
     if (code.toLowerCase() !== clientCode.toLowerCase()) {
       throw Error('验证码错误');
     }

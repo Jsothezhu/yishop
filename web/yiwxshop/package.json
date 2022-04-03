@@ -4,6 +4,7 @@
 		"test": "eslint . --fix"
 	},
 	"dependencies": {
+		"moment": "^2.29.1",
 		"uni-read-pages": "^1.0.5",
 		"uni-simple-router": "^2.0.8-beta.3"
 	},

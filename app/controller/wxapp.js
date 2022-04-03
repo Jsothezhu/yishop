@@ -201,7 +201,20 @@ class wxapp extends Controller {
     }
   }
   /**
-     * @description 新增订单
+   *@description 生成未付款订单
+   * */
+  async addPayOrder() {
+    const { ctx } = this;
+    const query = ctx.request.body;
+    const result = await ctx.service.order.addOrder(query);
+    if (result) {
+      ctx.success(result, 200, '订单添加成功');
+    } else {
+      ctx.error(400, '查询订单出错');
+    }
+  }
+  /**
+     * @description 生成付款的订单
      */
   async addOrder() {
     const { ctx } = this;
@@ -241,7 +254,7 @@ class wxapp extends Controller {
     }
   }
   /**
-     * @description 确认收货
+     * @description 确认收货/确认付款
      */
   async getComfireOrder() {
     const { ctx } = this;

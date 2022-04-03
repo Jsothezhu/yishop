@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view style="height: 100vh;">
 		<view class="w-100 top-img d-flex a-center">
 			<view class="rounded-circle ml-5" 
 			style="width: 150rpx;height: 150rpx;background-color: white;">

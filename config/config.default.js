@@ -70,11 +70,25 @@ module.exports = appInfo => {
     // myAppName: 'egg',
   };
   config.redis = {
-    client: {
-      port: 6379,
-      host: '127.0.0.1',
-      password: 'root',
-      db: 0,
+    clients: {
+      code: {
+        port: 6379,
+        host: '127.0.0.1',
+        password: 'root',
+        db: 0,
+      },
+      default: {
+        port: 6379,
+        host: '127.0.0.1',
+        password: 'root',
+        db: 1,
+      },
+      subscribe: {
+        host: '127.0.0.1',
+        port: 6379,
+        password: 'root',
+        db: 2,
+      },
     },
   };
 

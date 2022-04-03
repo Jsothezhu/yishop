@@ -45,7 +45,7 @@
 				v-model="userinfo.code"
 				style="flex: 2; "
 			/>
-			<image src="http://120.25.254.86:82/captcha" mode="widthFix"
+			<image src="http://127.0.0.1:7001/captcha" mode="widthFix"
 			style="flex: 3;margin-left: 10upx;"
 			></image>		
 			</u-form-item>
@@ -65,7 +65,7 @@
 				v-model="userinfo.code"
 				style="flex: 2; "
 				/>
-			<image src="http://127.0.0.1:7001/captcha" mode="widthFix"
+			<image src="http://120.25.254.86:82/captcha" mode="widthFix"
 			style="flex: 3;margin-left: 10upx;"
 			></image>		
 			</view>

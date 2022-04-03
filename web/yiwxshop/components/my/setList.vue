@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<u-list class="mt-2">
+		<u-list class="mt-2" style="height:50vh;">
 		<view @click="toset(item.url)"
 			v-for="(item, index) in list"
 			:key="index">

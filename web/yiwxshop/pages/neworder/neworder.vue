@@ -129,7 +129,53 @@
 			},
 			//取消支付
 			cancelPay(){
-				this.show = false
+				this.show = false;
+				let address = '';
+				let receiver = '';
+				let phone = "";
+				for(let item of this.addressList){
+					 if(item.isdefault){
+						receiver = item.receiver
+						phone = item.receiver_phone
+						address = item.province+item.city+item.area+item.detail+""
+					 }
+				}
+				uni.$u.http.post("/v1/wxapp/addpayorder",{
+					user_id:JSON.parse(uni.getStorageSync("userInfo")).id || "",
+					address:address,
+					total_price:this.totalprice,
+					goods_id:this.checklist.map(item=>{
+							return item.good.goods_id
+					}),
+					sku_type:this.checklist.map(item=>{
+						return item.sku_text
+					}),
+					count:this.checklist.map(item=>{
+						return item.buy_count
+					}),
+					price:this.checklist.map(item=>{
+						return item.buy_price
+					}),
+					status:"pay",
+					receiver:receiver,
+					phone:phone
+				}).then((response)=>{
+					uni.showToast({
+						icon:"none",
+						title:"下单成功,请尽快付款"
+					})
+					this.deleteCart()
+					setTimeout(function (){
+						uni.navigateTo({
+							url:`../orderdetail/orderdetail?order_id=${response}`
+						})
+					},1000)
+				}).catch((e)=>{
+					uni.showToast({
+						icon:"none",
+						title:"没有库存了"
+					})
+				})
 			}
 		},
 		onLoad(){

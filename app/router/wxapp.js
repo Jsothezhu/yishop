@@ -14,6 +14,7 @@ module.exports = app => {
   app.router.post('/v1/wxapp/addreceiveraddress', app.controller.wxapp.addAddress);
   app.router.put('/v1/wxapp/altreceiveraddress', app.controller.wxapp.altAddress);
   app.router.del('/v1/wxapp/delreceiveraddress', app.controller.wxapp.delAddress);
+  app.router.post('/v1/wxapp/addpayorder', app.controller.wxapp.addPayOrder);
   app.router.post('/v1/wxapp/addorder', app.controller.wxapp.addOrder);
   app.router.get('/v1/wxapp/getorder', app.controller.wxapp.getOrderDetail);
   app.router.get('/v1/wxapp/getuserorder', app.controller.wxapp.getUserOrder);
