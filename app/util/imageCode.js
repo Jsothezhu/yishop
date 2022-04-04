@@ -11,11 +11,20 @@ module.exports = {
       height: 35,
       fontSize: 35,
     });
-    await app.redis.get('code').hset('captcha', ctx.request.header.referer, captcha.text);
+    if (ctx.request.header['x-forwarded-for']) {
+      await app.redis.get('code').hset('captcha', ctx.request.header['x-forwarded-for'], captcha.text);
+    } else {
+      await app.redis.get('code').hset('captcha', ctx.request.header.referer, captcha.text);
+    }
     return captcha.data;
   },
-  async validImageCode(app,ctx,clientCode) {
-    const code = await app.redis.get('code').hget('captcha',ctx.request.header.referer);
+  async validImageCode(app, ctx, clientCode) {
+    let code = '';
+    if (ctx.request.header['x-forwarded-for']) {
+      code = await app.redis.get('code').hget('captcha', ctx.request.header['x-forwarded-for']);
+    } else {
+      code = await app.redis.get('code').hget('captcha', ctx.request.header.referer);
+    }
     if (code.toLowerCase() !== clientCode.toLowerCase()) {
       throw Error('验证码错误');
     }

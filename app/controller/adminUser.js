@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 
 class adminUserController extends Controller {
   async login() {
-    const { ctx } = this;
+    const { ctx,app } = this;
     const userData = ctx.request.body;
     const username = userData.username;
     const password = userData.password;
