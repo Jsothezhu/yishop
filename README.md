@@ -18,7 +18,7 @@ $ npm i
 $ npm run dev
 ```
 ###本地调试uni-app h5端说明
-安装依赖，然后再网页端运行
+安装依赖，然后可以在hbuilder中运行
 ```bash
 $ npm i
 ```
